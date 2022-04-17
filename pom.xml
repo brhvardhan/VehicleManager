@@ -4,15 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.navi</groupId>
+    <groupId>com.navi</groupId>
     <artifactId>vehiclemanager</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+<!--    <packaging>jar</packaging>-->
     <dependencies>
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>RELEASE</version>
+            <version>23.0.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -59,6 +59,7 @@
                             <mainClass>com.navi.vehiclemanager.Driver</mainClass>
                         </manifest>
                     </archive>
+                    <finalName>geektrust</finalName>
                 </configuration>
             </plugin>
             <plugin>
@@ -69,11 +70,14 @@
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
                     <archive>
+                        <index>true</index>
                         <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>libs/</classpathPrefix>
                             <mainClass>>com.navi.vehiclemanager.Driver</mainClass>
                         </manifest>
                     </archive>
-                    <finalName>geektrust</finalName>
+                    <finalName>geektrust_with_dependencies</finalName>
                     <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
                 <executions>
