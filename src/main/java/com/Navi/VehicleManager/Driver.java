@@ -92,7 +92,6 @@ public class Driver {
 
     public static void main(String[] args) {
         try {
-            System.out.println("Welcome to Car Booking System.");
             Driver d = new Driver();
             d.startProcess(args[0]);
         } catch (Exception e) {
