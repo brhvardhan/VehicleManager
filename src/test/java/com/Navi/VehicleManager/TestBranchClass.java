@@ -1,4 +1,4 @@
-package com.Navi.VehicleManager;
+package com.navi.vehiclemanager;
 
 import org.junit.Test;
 import static org.junit.Assert.*;

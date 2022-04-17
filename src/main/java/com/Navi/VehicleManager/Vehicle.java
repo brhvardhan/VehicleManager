@@ -1,4 +1,4 @@
-package com.Navi.VehicleManager;
+package com.navi.vehiclemanager;
 
 class Vehicle{
     

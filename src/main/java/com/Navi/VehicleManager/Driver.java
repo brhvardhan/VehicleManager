@@ -1,4 +1,4 @@
-package com.Navi.VehicleManager;
+package com.navi.vehiclemanager;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
