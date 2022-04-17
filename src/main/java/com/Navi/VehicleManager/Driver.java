@@ -37,8 +37,7 @@ public class Driver {
         }
         try {
             Branch b = city.getBranch(args[1]);
-            int price = b.bookVehicle(args[2],Integer.parseInt(args[3]),Integer.parseInt(args[4]));
-            return price;
+            return b.bookVehicle(args[2],Integer.parseInt(args[3]),Integer.parseInt(args[4]));
         } catch (Exception e) {
             return -1;
         }
@@ -65,13 +64,13 @@ public class Driver {
         String[] inputArgs = inputCommand.split(" ");
         switch (inputArgs[0].toUpperCase()) {
             case "ADD_BRANCH":
-                System.out.println(inputCommand + " - " + addNewBranch(city, inputArgs));
+                System.out.println(Boolean.toString(addNewBranch(city, inputArgs)).toUpperCase());
                 break;
             case "ADD_VEHICLE":
-                System.out.println(inputCommand + " - " + addNewVehicle(city, inputArgs));
+                System.out.println(Boolean.toString(addNewVehicle(city, inputArgs)).toUpperCase());
                 break;
             case "BOOK":
-                System.out.println(inputCommand + " - " + bookVehicle(city, inputArgs));
+                System.out.println(bookVehicle(city, inputArgs));
                 break;
             case "DISPLAY_VEHICLES":
                 displayVehicles(city, inputArgs);
@@ -82,39 +81,20 @@ public class Driver {
     }
 
 
-    public void startProcess() throws FileNotFoundException {
-        Scanner sc = new Scanner(System.in);
-        // Use this to take input from file as mentioned in Problem statement.
-//        System.out.print("Enter file location: ");
-//        String filePath = sc.nextLine();
-//        filePath = filePath.trim();
-//
-//        System.out.println(filePath);
-//        File file = new File(filePath);
-//        Scanner fileScanner = new Scanner(file);
-//        while (fileScanner.hasNextLine())
-//            runCommand(fileScanner.nextLine());
+    public void startProcess(String filePath) throws FileNotFoundException {
+        filePath = filePath.trim();
+        File file = new File(filePath);
+        Scanner fileScanner = new Scanner(file);
+        while (fileScanner.hasNextLine())
+            runCommand(fileScanner.nextLine());
 
-        System.out.print("Enter Commands: ");
-        String command;
-        while(sc.hasNextLine()) {
-            command = sc.nextLine();
-            if (command.length() == 0) {
-                break;
-            }
-            runCommand(command);
-        }
     }
 
     public static void main(String[] args) {
         try {
             System.out.println("Welcome to Car Booking System.");
-            System.out.println(args.length);
-            for(String x: args){
-                System.out.println(x);
-            }
             Driver d = new Driver();
-            d.startProcess();
+            d.startProcess(args[0]);
         } catch (Exception e) {
             System.out.println("Exception Occurred, " + e);
         }
