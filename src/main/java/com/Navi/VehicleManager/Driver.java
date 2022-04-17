@@ -96,14 +96,23 @@ public class Driver {
 //            runCommand(fileScanner.nextLine());
 
         System.out.print("Enter Commands: ");
-        while(sc.hasNextLine())
-             runCommand(sc.nextLine());
-
+        String command;
+        while(sc.hasNextLine()) {
+            command = sc.nextLine();
+            if (command.length() == 0) {
+                break;
+            }
+            runCommand(command);
+        }
     }
 
     public static void main(String[] args) {
         try {
             System.out.println("Welcome to Car Booking System.");
+            System.out.println(args.length);
+            for(String x: args){
+                System.out.println(x);
+            }
             Driver d = new Driver();
             d.startProcess();
         } catch (Exception e) {
