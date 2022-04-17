@@ -84,16 +84,20 @@ public class Driver {
 
     public void startProcess() throws FileNotFoundException {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter file location: ");
-        String filePath = sc.nextLine();
-        filePath = filePath.trim();
+        // Use this to take input from file as mentioned in Problem statement.
+//        System.out.print("Enter file location: ");
+//        String filePath = sc.nextLine();
+//        filePath = filePath.trim();
+//
+//        System.out.println(filePath);
+//        File file = new File(filePath);
+//        Scanner fileScanner = new Scanner(file);
+//        while (fileScanner.hasNextLine())
+//            runCommand(fileScanner.nextLine());
 
-        System.out.println(filePath);
-        File file = new File(filePath);
-        Scanner fileScanner = new Scanner(file);
-        while (fileScanner.hasNextLine())
-            runCommand(fileScanner.nextLine());
-
+        System.out.print("Enter Commands: ");
+        while(sc.hasNextLine())
+             runCommand(sc.nextLine());
 
     }
 
