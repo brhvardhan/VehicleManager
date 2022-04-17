@@ -39,11 +39,11 @@ public class TestBranchClass {
         b.addNewVehicle("car","v3",3);
 
 
-        assertEquals(b.bookVehicle("car",1,3), 1);
         assertEquals(b.bookVehicle("car",1,3), 2);
-        assertEquals(b.bookVehicle("car",1,3), 3);
+        assertEquals(b.bookVehicle("car",1,3), 4);
+        assertEquals(b.bookVehicle("car",1,2), 3);
         assertEquals(b.bookVehicle("car",1,3), -1);
 
-        assertEquals(b.bookVehicle("car",23,1), 1);
+        assertEquals(b.bookVehicle("car",23,1), 2);
     }
 }

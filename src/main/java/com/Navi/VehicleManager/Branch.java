@@ -59,16 +59,26 @@ class Branch {
         Vehicle v = selectVehicle(availableVehicles);
         v.changeBookingStatus(start, end);
 
+        int h = getHours(start,end);
+
         // Dynamic Pricing
         if (vehicleType.toLowerCase().equals("car")){
             int totalVehiclesCount = vehiclesMap.get(vehicleType.toLowerCase()).size();
             int availableVehiclesCount = availableVehicles.size();
             if ( (double) availableVehiclesCount/totalVehiclesCount <= 0.2){
-                return (int) Math.round(v.price*1.1);
+                return (int) Math.round(v.price*1.1*h);
             }
         }
 
-        return v.price;
+        return v.price*h;
+    }
+
+    private int getHours(int start, int end) {
+        if (start<end) {
+            return end - start;
+        } else {
+            return end-start+24;
+        }
     }
 
     private Vehicle selectVehicle(ArrayList<Vehicle> availableVehicles) {
